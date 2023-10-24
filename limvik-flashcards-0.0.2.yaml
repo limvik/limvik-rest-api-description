@@ -10,7 +10,7 @@ info:
   license:
     name: MIT License
     url: https://github.com/limvik/limvik-rest-api-description/blob/main/LICENSE
-  version: 0.0.1
+  version: 0.0.2
 servers:
 - url: "{protocol}://{hostname}/api/v1"
   variables:
@@ -707,23 +707,28 @@ components:
           type: integer
           format: int32
           examples: [3]
-        studyDateTime:
+        plannedAt:
           type: string
           format: date-time
           examples: ['2023-09-28T13:00:00Z']
+        studiedAt:
+          type: string
+          readOnly: true
+          format: date-time
+          examples: [null]
     RecommendedPlan:
       type: object
       properties:
         recommendedPlans:
           type: array
-          items:
+          items: 
             type: object
             properties:
               grade:
                 type: integer
                 format: int32
                 examples: [3]
-              studyDateTime:
+              plannedAt:
                 type: string
                 format: date-time
                 examples: ['2023-09-28T13:00:00Z']
